@@ -39,5 +39,6 @@ class Application(tk.Frame):
             self.text.focus()
 
 root = tk.Tk()
+root.title('Pypad v0.1')
 app = Application(master=root)
 app.mainloop()
