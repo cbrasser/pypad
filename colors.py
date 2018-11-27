@@ -1,3 +1,5 @@
+#utility for color lookups
+
 color_dic = {}
 color_dic['red'] = '#BF616A'
 color_dic['orange'] = '#D08770'

@@ -15,7 +15,7 @@ def save_as(text_widget):
         print('file not found')
 
 def save(text_widget):
-    #This textbox is already registered to a file
+    #This textbox is already registered to a file, save it to this path per default
     if text_widget.file:
         try:
             with open(text_widget.file, "w+") as file:
@@ -24,6 +24,7 @@ def save(text_widget):
             print('something went wrong at saving file')
         except FileNotFoundError:
             print('file not found')
+    #Ask for file path to save content to
     else:
         save_as(text_widget)
 
