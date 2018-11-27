@@ -5,8 +5,8 @@ from fonts import *
 from colors import color_dic
 
 class Menubar_submenu(tk.Menu):
-    def __init__(self, master = None, tearoff = 0):
-        super().__init__(master)
+    def __init__(self, master = None, tf = 0):
+        super().__init__(master, tearoff = tf)
         self.master = master
         self.configure(activebackground=color_dic['purple'],activeforeground=color_dic['white'], border = 0)
 
@@ -24,11 +24,11 @@ class Menubar(tk.Menu):
         self.init_edit_menu()
 
     def init_shortcuts(self):
-        self.master.bind_all('<Control-Shift-S>', lambda event : save_as(self.master.text))
-        self.master.bind_all('<Control-s>', lambda event : save(self.master.text))
-        self.master.bind_all('<Control-o>', lambda event : load_from(self.master.text))
-        self.master.bind_all('<Control-a>', lambda event, arg=self.master.text : select_all(arg, event))
-        self.master.bind_all('<Control-f>', lambda event : self.master.toggle_search_bar())
+        self.bind_all('<Control-Shift-S>', lambda event : save_as(self.master.text))
+        self.bind_all('<Control-s>', lambda event : save(self.master.text))
+        self.bind_all('<Control-o>', lambda event : load_from(self.master.text))
+        self.bind_all('<Control-a>', lambda event, arg=self.master.text : select_all(arg, event))
+        self.bind_all('<Control-f>', lambda event : self.master.toggle_search_bar())
 
     def init_file_menu(self):
         file_dialog=Menubar_submenu(self)
